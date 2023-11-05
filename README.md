@@ -28,12 +28,15 @@ services:
       - USERS={"tailscale-user@example.com":"backend-basic-auth-user:password"}
 ```
 
+Upstream users are specified in JSON format. A special `default` user can be
+added to allow all Tailscale users to use the backend service.
+
 ### Behind another proxy
 If running behind another proxy, add the following variables to ensure that the
 client IP is detected correctly.
 ```
 - TRUSTED_IP=<downstream proxy ip>
-- REAL_CLIENT_IP_HEADER=<header used by downstream proxy fir real IP>
+- REAL_CLIENT_IP_HEADER=<header used by downstream proxy for real IP>
 ```
 
 ## License
