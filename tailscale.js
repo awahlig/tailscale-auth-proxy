@@ -42,13 +42,6 @@ async function whois(addr) {
   return await resp.json();
 }
 
-function test(r) {
-  r.error(JSON.stringify(r.headersIn));
-  r.error(r.remoteAddress);
-  return "";
-}
-
 export default {
   auth,
-  test,
 };
