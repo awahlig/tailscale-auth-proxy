@@ -7,4 +7,4 @@ ENV TRUSTED_IP 127.0.0.1
 
 COPY nginx.conf /etc/nginx/
 COPY default.conf.template /etc/nginx/templates/
-COPY tailscale.js /etc/nginx
+COPY tailscale.js /etc/nginx/
