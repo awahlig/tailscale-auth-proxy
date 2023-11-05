@@ -1,7 +1,7 @@
 # tailscale-auth-proxy
 Reverse proxy for auth using Tailscale.
 
-#### What is it?
+## What is it?
 This is an nginx reverse proxy that authenticates all requests using Tailscale.
 
 This is done using Tailscale's API whois call which, given an IP:port pair
@@ -12,7 +12,7 @@ HTTP 401 is returned if no user can be found.
 Otherwise, the Tailscale user is translated into a Basic Auth token and passed
 to the upstream service.
 
-#### Usage
+## Usage
 ```
 version: "3"
 
@@ -28,7 +28,7 @@ services:
       - USERS={"tailscale-user@example.com":"backend-basic-auth-user:password"}
 ```
 
-#### Behind another proxy
+### Behind another proxy
 If running behind another proxy, add the following variables to ensure that the
 client IP is detected correctly.
 ```
@@ -36,5 +36,5 @@ client IP is detected correctly.
 - REAL_CLIENT_IP_HEADER=<header used by downstream proxy fir real IP>
 ```
 
-#### License
+## License
 This project is using the Apache 2.0 license.
