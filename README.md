@@ -2,15 +2,16 @@
 Reverse proxy for auth using Tailscale.
 
 ## What is it?
-This is an nginx reverse proxy that authenticates all requests using Tailscale.
+An nginx reverse proxy that authenticates all requests using Tailscale.
 
-This is done using Tailscale's API whois call which, given an IP:port pair
-of the client, returns the Tailscale user the node belongs to.
+This is done using Tailscale's *whois* API which, given an IP:port pair
+of the client, returns the Tailscale user the remote node belongs to.
 
-HTTP 401 is returned if no user can be found.
-
-Otherwise, the Tailscale user is translated into a Basic Auth token and passed
+The Tailscale user is then translated into a Basic Auth token and passed
 to the upstream service.
+
+If Tailscale can't find the user or if the proxy is configured to not give
+this user access, HTTP 401 is returned.
 
 ## Usage
 ```
